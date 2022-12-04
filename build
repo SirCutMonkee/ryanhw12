@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "Configuring GPIO pin"
+config-pin -q p8.16
+config-pin -l p8.16
+config-pin p8.16 gpio_pu
+config-pin -q p8.16
+echo "Starting build for read_button.cpp"
+g++ read_button.cpp GPIO.cpp -o read_button.cgi -lcgicc -lpthread
+echo "Finishing build for read_button.cpp"
